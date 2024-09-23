@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar">
+            <h1>Interactive Tutoring System</h1>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Selection Form -->
+    <div class="course-container">
+        <h2>Select Your Courses</h2>
+        <form id="courseForm">
+            <label>
+                <input type="checkbox" name="course" value="JavaScript"> JavaScript
+            </label><br>
+            <label>
+                <input type="checkbox" name="course" value="Python"> Python
+            </label><br>
+            <label>
+                <input type="checkbox" name="course" value="HTML"> HTML
+            </label><br>
+            <label>
+                <input type="checkbox" name="course" value="CSS"> CSS
+            </label><br>
+            <label>
+                <input type="checkbox" name="course" value="React"> React
+            </label><br>
+            <button type="submit" class="btn">Proceed to Learning Level</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Interactive Tutoring System</p>
+    </footer>
+
+    <!-- JavaScript to handle form submission -->
+    <script src="script.js"></script>
+</body>
+</html>

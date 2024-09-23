@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Course Selection Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCourseModal()">&times;</span>
+            <h2>Select Your Courses</h2>
+            <form id="courseForm">
+                <label for="courses">Choose your course:</label>
+                <select id="courses" name="courses" multiple>
+                    <option value="math">Mathematics</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="programming">Programming</option>
+                </select>
+                <button type="button" onclick="submitCourses()">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Learning Level Modal -->
+    <div id="levelModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLevelModal()">&times;</span>
+            <h2>Select Your Learning Level</h2>
+            <form id="levelForm">
+                <label for="level">Choose your level:</label>
+                <select id="level" name="level">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <button type="button" onclick="submitLevel()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
