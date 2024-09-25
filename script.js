@@ -124,3 +124,89 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reload the audio element to reflect the new source
     courseAudio.load();
 });
+
+// Simulated quiz questions (ideally, these would come from the Gemini API)
+const quizQuestions = [
+    {
+        question: "What is a variable in programming?",
+        choices: [
+            "A data storage unit",
+            "A function",
+            "An input method",
+            "None of the above"
+        ],
+        correctAnswer: 0 // Index of correct answer
+    },
+    {
+        question: "Which of the following is a loop in programming?",
+        choices: [
+            "if-else",
+            "for",
+            "try-catch",
+            "print"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the main purpose of a function?",
+        choices: [
+            "To display output",
+            "To define a sequence of operations",
+            "To handle errors",
+            "None of the above"
+        ],
+        correctAnswer: 1
+    }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const quizForm = document.getElementById("quizForm");
+    const submitQuizButton = document.getElementById("submitQuiz");
+    const resultContainer = document.getElementById("result");
+
+    // Generate quiz questions
+    quizQuestions.forEach((questionObj, index) => {
+        const questionElement = document.createElement("div");
+        questionElement.classList.add("question");
+
+        const questionTitle = document.createElement("h3");
+        questionTitle.textContent = `${index + 1}. ${questionObj.question}`;
+        questionElement.appendChild(questionTitle);
+
+        questionObj.choices.forEach((choice, choiceIndex) => {
+            const label = document.createElement("label");
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = `question${index}`;
+            input.value = choiceIndex;
+
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(choice));
+            questionElement.appendChild(label);
+            questionElement.appendChild(document.createElement("br"));
+        });
+
+        quizForm.appendChild(questionElement);
+    });
+
+    // Handle quiz submission
+    submitQuizButton.addEventListener("click", () => {
+        let score = 0;
+
+        quizQuestions.forEach((questionObj, index) => {
+            const selectedAnswer = document.querySelector(`input[name="question${index}"]:checked`);
+            if (selectedAnswer && parseInt(selectedAnswer.value) === questionObj.correctAnswer) {
+                score += 1;
+            }
+        });
+
+        // Display result
+        const totalQuestions = quizQuestions.length;
+        resultContainer.textContent = `You scored ${score} out of ${totalQuestions}.`;
+        if (score === totalQuestions) {
+            resultContainer.style.color = "green";
+        } else {
+            resultContainer.style.color = "red";
+        }
+    });
+});
